@@ -12,9 +12,9 @@ use App\Http\Controllers\AppointmentController;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('user.home');
+// });
 
 Route::get('login', function () {
     return view('authentication.login');
@@ -28,9 +28,9 @@ Route::get('dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-// Route::get('user', function () {
-//     return view('user');
-// })->name('user');
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
 // Route::get('user', function () {
 //     return view('user.user');
