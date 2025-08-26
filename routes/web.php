@@ -8,11 +8,11 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\feedbackController;
 use App\Http\Controllers\AppointmentController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('home', function () {
+Route::get('/', function () {
     return view('user.home');
 });
 
