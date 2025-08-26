@@ -60,7 +60,7 @@ class AuthController extends Controller
     public function logout()
     {
         session()->flush();
-        return redirect('home');
+        return redirect() -> back();
     }
 
     public function usermanage()
