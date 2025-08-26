@@ -13,7 +13,7 @@ use App\Http\Controllers\AppointmentController;
 // });
 
 Route::get('/', function () {
-    return view('user.home');
+    return view('home');
 });
 
 Route::get('login', function () {
