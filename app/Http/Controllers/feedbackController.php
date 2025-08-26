@@ -14,7 +14,7 @@ class feedbackController extends Controller
     {
         if(!Auth::check())
         {
-            return redirect('home');
+            return redirect('/');
         }
 
         $feedback = feedback::all();

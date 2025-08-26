@@ -12,7 +12,7 @@ class staffController extends Controller
     {
         if(!Auth::check())
         {
-            return redirect('home');
+            return redirect('/');
         }
 
         $staff = Staff::all();

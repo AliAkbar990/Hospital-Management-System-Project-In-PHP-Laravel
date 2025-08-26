@@ -18,7 +18,7 @@ class DoctorController extends Controller
     {
         if(!Auth::check())
         {
-            return redirect('home');
+            return redirect('/');
         }
 
         $doctors = Doctor::all();

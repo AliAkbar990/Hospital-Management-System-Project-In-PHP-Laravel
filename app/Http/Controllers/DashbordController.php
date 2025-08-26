@@ -18,7 +18,7 @@ class DashbordController extends Controller
 
     if(!Auth::check())
     {
-        return redirect('home');
+        return redirect('/');
     }
     
     $totalUsers = User::count();

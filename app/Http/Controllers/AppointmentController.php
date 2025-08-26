@@ -70,7 +70,7 @@ class AppointmentController extends Controller
 
         if(!Auth::check())
         {
-            return redirect('home');
+            return redirect('/');
         }
 
         $data = Appointment::all();
