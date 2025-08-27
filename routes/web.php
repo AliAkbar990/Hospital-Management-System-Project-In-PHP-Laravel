@@ -174,26 +174,12 @@ Route::get('/delete_feedback/{id}', [feedbackController::class, 'd']);
 
 
 
-Route::get('/run-migrate', function () {
+Route::get('/fix-migrate', function () {
     try {
         Artisan::call('migrate', ['--force' => true]);
-        return "Migration completed successfully!";
-    } catch (\Exception $e) {
-        return "Migration failed: " . $e->getMessage();
-    }
-});
-
-
-Route::get('/fix-sessions', function () {
-    try {
-        // Step 1: Session table migration file generate karega
-        Artisan::call('session:table');
-
-        // Step 2: Saare migrations (sessions table wala bhi) run karega
-        Artisan::call('migrate', ['--force' => true]);
-
-        return "Sessions table created successfully!";
+        return nl2br(Artisan::output());
     } catch (\Exception $e) {
         return "Error: " . $e->getMessage();
     }
 });
+
