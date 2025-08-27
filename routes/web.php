@@ -184,3 +184,16 @@ Route::get('/run-migrate', function () {
 });
 
 
+Route::get('/fix-sessions', function () {
+    try {
+        // Step 1: Session table migration file generate karega
+        Artisan::call('session:table');
+
+        // Step 2: Saare migrations (sessions table wala bhi) run karega
+        Artisan::call('migrate', ['--force' => true]);
+
+        return "Sessions table created successfully!";
+    } catch (\Exception $e) {
+        return "Error: " . $e->getMessage();
+    }
+});
