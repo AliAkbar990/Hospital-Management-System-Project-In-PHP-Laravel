@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashbordController;
@@ -168,5 +169,18 @@ Route::get('/succec', function () {
 });
 
 Route::get('/delete_feedback/{id}', [feedbackController::class, 'd']); 
+
+
+
+
+
+Route::get('/run-migrate', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return "Migration completed successfully!";
+    } catch (\Exception $e) {
+        return "Migration failed: " . $e->getMessage();
+    }
+});
 
 
